@@ -10,11 +10,10 @@ dotenv.config({ path: './.env' });
 
 const app = express();
 
-app.use('/posts', postRoutes);
-
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
+app.use('/posts', postRoutes);
 
 const url = process.env.CONNECTION_URL;
 
